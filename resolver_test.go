@@ -180,6 +180,7 @@ func TestNormalizacaoDeTeclas(t *testing.T) {
 		keys.Binding{Action: "page-down", Keys: []string{"pgdown"}},
 		keys.Binding{Action: "combo", Keys: []string{"ctrl+alt+x"}},
 		keys.Binding{Action: "cedilla", Keys: []string{"ç"}},
+		keys.Binding{Action: "cedilla-mod", Keys: []string{"ctrl+ç"}},
 		keys.Binding{Action: "upper", Keys: []string{"A"}},
 		keys.Binding{Action: "lower", Keys: []string{"a"}},
 	)
@@ -216,6 +217,8 @@ func TestNormalizacaoDeTeclas(t *testing.T) {
 		{"C-A-x", "combo"},
 		{"CTRL+ALT+X", "combo"},
 		{"ç", "cedilla"},
+		{"ctrl+ç", "cedilla-mod"},
+		{"ctrl+Ç", "cedilla-mod"},
 		{"A", "upper"},
 		{"a", "lower"},
 	}

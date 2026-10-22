@@ -4,6 +4,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 // keyAliases mapeia grafias alternativas para a forma canônica usada por
@@ -201,8 +202,8 @@ func canonicalFinal(s string, hasMods bool) string {
 		if r == ' ' {
 			return "space"
 		}
-		if hasMods && r >= 'A' && r <= 'Z' {
-			return string(r + ('a' - 'A'))
+		if hasMods && unicode.IsLetter(r) {
+			return string(unicode.ToLower(r))
 		}
 		return s
 	}
